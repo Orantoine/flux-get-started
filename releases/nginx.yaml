@@ -1,0 +1,15 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: demo
+  annotations:
+    fluxcd.io/automated: "false"
+    fluxcd.io/tag.chart-image: glob:1.21.*
+spec:
+  releaseName: ghost
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+      name: nginx-ingress
+      version: 1.24.1
